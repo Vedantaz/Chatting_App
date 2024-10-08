@@ -1,7 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
-import useConversation from "../../statemanage/useConversation.jsx";
-import useSocketContext from "../../context/SocketContext.jsx";
+// import useConversation from "../../statemanage/useConversation.jsx";
+import useSocketContext from "../../context/SocketContext";
 
 export default function User({ user }) {
   const [selectedConversation, setSelectedConversation] = useConversation();

@@ -1,15 +1,14 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { useAuth } from "./AuthProvider";
-import io from "socket-io-client";
+import { io } from "socket.io-client";
 
-export const SocketContext = () => {
-  const SocketContext = createContext();
+const SocketContext = createContext();
+// it is a hook
+export const useSocketContext = () => {
+  return useContext(SocketContext);
+};
 
-  // it is a hook
-  const useSocketContext = () => {
-    return useContext(SocketContext);
-  };
-
+export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [authUser] = useAuth();
@@ -39,3 +38,5 @@ export const SocketContext = () => {
     </socketContext.Provider>
   );
 };
+
+export default SocketProvider;
