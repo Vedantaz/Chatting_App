@@ -2,23 +2,47 @@ import React from "react";
 import { IoSearch } from "react-icons/io5";
 
 const SearchBar = () => {
+  const [search, setSearch] = useState("");
+  const [allUsers] = useGetAllUsers("");
+  const { setSelectedConversation } = useConversation();
+
+  console.log(allUsers);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!search) return;
+    const conversation = allUsers.find((user) =>
+      user.fullName?.toLowerCase().includes(search.toLowerCase())
+    );
+
+    if (conversation) {
+      setSelectedConversation(conversation);
+      setSearch("");
+    } else {
+      toast.error("user not found");
+    }
+  };
+
   return (
-    <div className="flex p-4 px-6">
-      <form action="" className="flex items-center w-full">
-        <div className="relative flex-grow">
-          <input
-            type="text"
-            className="input input-bordered w-full rounded-lg pl-4 pr-10 py-2 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 hover:bg-white"
-            placeholder="Search"
-          />
-          <button
-            type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition duration-200"
-          >
-            <IoSearch size={20} />
-          </button>
-        </div>
-      </form>
+    <div className=" h-[10vh]">
+      <div className="px-6 py-4">
+        <form onSubmit={handleSubmit}>
+          <div className="flex space-x-3">
+            <label className=" border-[1px] border-gray-700 bg-slate-900 rounded-lg p-3 flex items-center gap-2 w-[80%]">
+              <input
+                type="text"
+                className="grow outline-none bg-transparent"
+                placeholder="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </label>
+            <button>
+              <FaSearch className="text-5xl p-2 hover:bg-gray-600 rounded-full duration-300" />
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
