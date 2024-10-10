@@ -3,6 +3,7 @@ import { useAuth } from "./AuthProvider";
 import { io } from "socket.io-client";
 
 const SocketContext = createContext();
+
 // it is a hook
 export const useSocketContext = () => {
   return useContext(SocketContext);
