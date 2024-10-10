@@ -1,7 +1,10 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5";
+import useGetAllUsers from "../../context/useGetAllUsers";
+import useConversation from "../../stateManage/useConversation";
+import toast from "react-hot-toast";
 
-const SearchBar = () => {
+const Search = () => {
   const [search, setSearch] = useState("");
   const [allUsers] = useGetAllUsers("");
   const { setSelectedConversation } = useConversation();
@@ -38,7 +41,7 @@ const SearchBar = () => {
               />
             </label>
             <button>
-              <FaSearch className="text-5xl p-2 hover:bg-gray-600 rounded-full duration-300" />
+              <IoSearch className="text-5xl p-2 hover:bg-gray-600 rounded-full duration-300" />
             </button>
           </div>
         </form>
@@ -47,4 +50,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;

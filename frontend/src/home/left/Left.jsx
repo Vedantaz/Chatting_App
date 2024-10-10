@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import User from "./User";
-import UseGetAllUsers from "../../context/useGetAllUsers";
 
 export default function Left() {
   return (
