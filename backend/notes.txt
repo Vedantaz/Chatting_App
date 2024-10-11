@@ -1,0 +1,10 @@
+1. MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (C:\Users\mulev\Desktop\Custom OfficeWorks\projects\full_stack_projects\Real time chat app\backend\node_modules\mongodb\lib\cmap\connection.js:289:27)
+
+=> a. username, password and database name with correct case should be written within the link.
+   
+   Link should be -> mongodb+srv://muleyvedant4:PU99Re2Sm5lBnmRE@cluster00.6l53v.mongodb.net/CHAT_app_MERN?retryWrites=true&w=majority&appName=Cluster00
+
+   Not should be like this -> mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority
+ 
+   all 3 things should be their, vice versa.

@@ -5,23 +5,24 @@ import UserRoute from "./routes/user.routes.js";
 
 const app = express();
 dotenv.config();
-const PORT = process.env.PORT || 3002;
 
+// middleware
+app.use(express.json());
+
+const PORT = process.env.PORT || 3002;
 const URI = process.env.MONGODB_URI;
+
 try {
-  mongoose
-    .connect(URI)
-    .then(console.log("MongoDb connected"))
-    .catch((error) => console.log(error));
+  mongoose.connect(URI).then(console.log("MongoDb connected"));
 } catch (error) {
   console.log(error);
 }
 
 app.get("/", (req, res) => {
-  res.send("Sunfire moves on");
+  res.send("Vedant, all is running well");
 });
 
-app.use("user", UserRoute);
+app.use("/api/user", UserRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
