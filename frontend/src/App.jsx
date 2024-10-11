@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import Left from "./home/left/Left";
 import Right from "./home/right/Right";
+
+// import Signup from "./components/Signup";
+// import Login from "./components/Login";
 
 import Logout from "./home/left1/Logout";
 import { useAuth } from "./context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { IoLogIn } from "react-icons/io5";
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
+export default function App() {
+  const [authUser] = useAuth();
+  // console.log(authUser);
 
   return (
     <>
@@ -30,12 +31,10 @@ function App() {
             )
           }
         />
-
         <Route
           path="/login"
           element={authUser ? <Navigate to="/" /> : <Login />}
         />
-
         <Route
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}
@@ -45,4 +44,3 @@ function App() {
     </>
   );
 }
-export default App;
