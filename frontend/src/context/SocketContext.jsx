@@ -12,7 +12,7 @@ export const useSocketContext = () => {
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const [authUser] = useAuth();
+  const { authUser } = useAuth(); // Destructure authUser from useAuth
 
   useEffect(() => {
     if (authUser) {
@@ -34,9 +34,9 @@ export const SocketProvider = ({ children }) => {
     }
   }, [authUser]);
   return (
-    <socketContext.Provider value={{ socket, onlineUsers }}>
+    <SocketContext.Provider value={{ socket, onlineUsers }}>
       {children}
-    </socketContext.Provider>
+    </SocketContext.Provider>
   );
 };
 

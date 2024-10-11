@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
 
-export default function AuthProvider({ children }) {
+export function AuthProvider({ children }) {
   const initialUserState =
     Cookies.get("jwt") || localStorage.getItem("ChatApp");
 
