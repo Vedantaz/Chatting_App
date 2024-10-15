@@ -5,9 +5,9 @@ import bcrypt from "bcryptjs";
 export const signup = async (req, res) => {
   try {
     const { name, email, password, confirmPassword } = req.body;
-    if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Passwords do not match" });
-    }
+    // if (password !== confirmPassword) {
+    //   return res.status(400).json({ message: "Passwords do not match" });
+    // }
     const user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ message: "User already exists" });

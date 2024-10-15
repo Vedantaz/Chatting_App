@@ -8,3 +8,5 @@
    Not should be like this -> mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority
  
    all 3 things should be their, vice versa.
+
+2. ALways give network access to mongodb, else it will not generate or take any request from you.
