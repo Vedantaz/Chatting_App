@@ -1,6 +1,6 @@
 import User from "../models/user.models.js";
 import bcrypt from "bcryptjs";
-// import createTokenAndSaveCookie from "../jwt/generateToken.js";
+import createTokenAndSaveCookie from "../jwt/generateToken.js";
 
 export const signup = async (req, res) => {
   try {
@@ -19,12 +19,23 @@ export const signup = async (req, res) => {
       email,
       password: hashPwd,
     });
-    await newUser
-      .save()
-      .then(() => res.json({ message: "User registered successful" }));
+    await newUser.save();
+
+    if (newUser) {
+      createTokenAndSaveCookie(newUser._id, res);
+      res.status(201).json({
+        message: "User created successfully",
+        user: {
+          _id: newUser._id,
+          name: newUser.name,
+          email: newUser.email,
+        },
+      });
+    }
+    // .then(() => res.json({ message: "User registered successful" }));
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Internal Server error" });
   }
 };
 
@@ -37,6 +48,16 @@ export const login = async (req, res) => {
     if (!user || !isMatch) {
       return res.status(400).json({ error: "invalid user credential" });
     }
+
+    createTokenAndSaveCookie(user._id, res);
+    res.status(201).json({
+      message: "User logged in successfully",
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+      },
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal server error" });
