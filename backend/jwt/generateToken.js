@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const createTokenAndSaveCookie = (userId, res) => {
+const createTokenAndSaveCookie = (userId, res) => {
   const token = jwt.sign({ userId }, process.env.JWT_TOKEN, {
     expiresIn: "10d",
   });
@@ -10,3 +10,4 @@ export const createTokenAndSaveCookie = (userId, res) => {
     sameSite: "strict",
   });
 };
+export default createTokenAndSaveCookie;

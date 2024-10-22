@@ -4,9 +4,9 @@ import useConversation from "../../stateManage/useConversation.jsx";
 import { useSocketContext } from "../../context/SocketContext";
 
 export default function User({ user }) {
-  const [selectedConversation, setSelectedConversation] = useConversation();
+  const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === user.id;
-  const { socket, onlineUsers } = useSocketContext();
+  const { onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(user._id);
 
   return (

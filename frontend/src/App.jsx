@@ -1,17 +1,16 @@
 import React, { createContext, useContext, useState } from "react";
 import Left from "./home/left/Left";
 import Right from "./home/right/Right";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 import Logout from "./home/left1/Logout";
 import { useAuth } from "./context/AuthProvider";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
 import { Toaster } from "react-hot-toast";
+
 import { Navigate, Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const { authUser } = useAuth();
-  // console.log(authUser);
-
+  const { authUser, setAuthUser } = useAuth();
   return (
     <>
       <Routes>
@@ -25,7 +24,7 @@ export default function App() {
                 <Right />
               </div>
             ) : (
-              <Navigate to={"/login"} />
+              <Navigate to={"/signup"} />
             )
           }
         />

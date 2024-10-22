@@ -21,7 +21,7 @@ export default function Login() {
     };
 
     axios
-      .post("/api/user/login", userInfo)
+      .post("http://localhost:5002/user/login", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Login successful.");

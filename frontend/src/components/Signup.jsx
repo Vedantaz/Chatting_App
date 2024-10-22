@@ -23,14 +23,14 @@ export default function Signup() {
 
   const onSubmit = async (data) => {
     const userInfo = {
-      fullname: data.fullname,
+      name: data.name,
       email: data.email,
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
     // console.log(userInfo);
     await axios
-      .post("/api/user/signup", userInfo)
+      .post("http://localhost:5002/user/signup", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Signup successful");
@@ -74,11 +74,11 @@ export default function Signup() {
             <input
               type="text"
               className="grow"
-              placeholder="Fullname"
-              {...register("fullname", { required: true })}
+              placeholder="name"
+              {...register("name", { required: true })}
             />
           </label>
-          {errors.fullname && (
+          {errors.name && (
             <span className="text-red-500 text-sm font-semibold">
               This field is required
             </span>
