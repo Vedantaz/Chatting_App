@@ -14,14 +14,14 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const userInfo = {
       email: data.email,
       password: data.password,
     };
 
-    axios
-      .post("http://localhost:5002/user/login", userInfo)
+    await axios
+      .post("api/user/login", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Login successful.");

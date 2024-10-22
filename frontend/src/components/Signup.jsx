@@ -30,7 +30,7 @@ export default function Signup() {
     };
     // console.log(userInfo);
     await axios
-      .post("http://localhost:5002/user/signup", userInfo)
+      .post("/api/user/signup", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Signup successful");
@@ -61,7 +61,7 @@ export default function Signup() {
             <span className="text-blue-600 font-semibold">Account</span>
           </h2>
 
-          {/* Fullname */}
+          {/* name */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

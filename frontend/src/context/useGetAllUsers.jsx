@@ -8,6 +8,7 @@ export default function useGetAllUsers() {
   useEffect(() => {
     const getUsers = async () => {
       setLoading(true);
+
       try {
         const token = Cookies.get("jwt");
         const response = await axios.get("api/get/allUsers", {
