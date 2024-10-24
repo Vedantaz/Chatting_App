@@ -5,6 +5,7 @@ import { CiMenuFries } from "react-icons/ci";
 
 export default function ChatUser() {
   const { selectedConversation } = useConversation();
+  console.log(selectedConversation);
   const onlineUsers = useSocketContext();
   const getOnlineUsersStatus = (userId) => {
     return onlineUsers.includes(userId) ? "Online" : "Offline";

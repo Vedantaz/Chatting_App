@@ -5,7 +5,7 @@ import UserRoute from "./routes/user.routes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/user.routes.js";
-import messageRoute from "./models/message.models.js";
+// import messageRoute from "./routes/message.routes.js";
 
 const app = express();
 dotenv.config();

@@ -4,7 +4,7 @@ import Message from "./message.model.js";
 
 const conversationSchema = new mongoose.Schema(
   {
-    members: [
+    participants: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: User,
@@ -13,7 +13,8 @@ const conversationSchema = new mongoose.Schema(
     messages: [
       {
         type: mongoose.Schema.Type.ObjectId,
-        ref: User,
+        ref: Message,
+        default: [],
       },
     ],
   },
