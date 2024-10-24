@@ -76,12 +76,13 @@ export const logout = async (req, res) => {
 
 export const allUsers = async (req, res) => {
   try {
-    const loggedInUser = req.user._id;
-    const filteredUser = await User.find({
-      _id: { $ne: loggedInUser },
+    const loggedInUser = req.User._id;
+    const filteredUsers = await User.find({
+      _id: { $ne: loggedInUser }, // ne == not equal
     }).select("-password");
-    res.status(201).json(filteredUser);
+    res.status(201).json(filteredUsers);
   } catch (error) {
     console.log("Error in allUsers Controller: " + error);
+    res.status(500).json({ message: "Server error" });
   }
 };
