@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useConversation from "../stateManage/useConversation";
 import axios from "axios";
 
-export default useGetMsg = () => {
+const useGetMsg = () => {
   const [loading, setLoading] = useState(false);
   const { messages, setMessages, selectedConversation } = useConversation();
 
@@ -18,6 +18,7 @@ export default useGetMsg = () => {
           setLoading();
         } catch (error) {
           console.log("Error in getting messages", error);
+        } finally {
           setLoading(false);
         }
       }
@@ -26,3 +27,5 @@ export default useGetMsg = () => {
   }, [selectedConversation, setMessages]);
   return { loading, messages };
 };
+
+export default useGetMsg;

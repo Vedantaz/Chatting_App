@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function Signup() {
-  const { authUser, setAuthUser } = useAuth();
+  const [authUser, setAuthUser] = useAuth();
   const {
     register,
     handleSubmit,
@@ -40,7 +40,7 @@ export default function Signup() {
       })
       .catch((error) => {
         if (error.response) {
-          toast.error("Error: " + error.response.data.error);
+          toast.error("Error: " + error.response.data.message);
         }
       });
   };
@@ -61,7 +61,7 @@ export default function Signup() {
             <span className="text-blue-600 font-semibold">Account</span>
           </h2>
 
-          {/* name */}
+          {/* Fullname */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -74,11 +74,11 @@ export default function Signup() {
             <input
               type="text"
               className="grow"
-              placeholder="name"
-              {...register("name", { required: true })}
+              placeholder="Fullname"
+              {...register("fullname", { required: true })}
             />
           </label>
-          {errors.name && (
+          {errors.fullname && (
             <span className="text-red-500 text-sm font-semibold">
               This field is required
             </span>
