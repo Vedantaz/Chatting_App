@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const { authUser, setAuthUser } = useAuth();
+  const [authUser, setAuthUser] = useAuth();
   return (
     <>
       <Routes>
@@ -24,7 +24,7 @@ export default function App() {
                 <Right />
               </div>
             ) : (
-              <Navigate to={"/signup"} />
+              <Navigate to={"/login"} />
             )
           }
         />

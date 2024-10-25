@@ -12,11 +12,11 @@ export const useSocketContext = () => {
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const { authUser } = useAuth(); // Destructure authUser from useAuth
+  const [authUser] = useAuth(); // Destructure authUser from useAuth
 
   useEffect(() => {
     if (authUser) {
-      const socket = io(`http://localhost:5173`, {
+      const socket = io(`http://localhost:4002`, {
         query: {
           userId: authUser.user._id,
         },
@@ -40,4 +40,4 @@ export const SocketProvider = ({ children }) => {
   );
 };
 
-export default SocketProvider;
+// export default SocketProvider;

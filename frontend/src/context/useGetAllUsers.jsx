@@ -11,7 +11,7 @@ export default function useGetAllUsers() {
 
       try {
         const token = Cookies.get("jwt");
-        const response = await axios.get("api/get/allUsers", {
+        const response = await axios.get("/api/get/allUsers", {
           Credentials: "include",
           headers: {
             Authorization: `Bearer ${token}`,

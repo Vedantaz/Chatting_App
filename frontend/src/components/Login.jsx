@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function Login() {
-  const { authUser, setAuthUser } = useAuth();
+  const [authUser, setAuthUser] = useAuth();
 
   const {
     register,
@@ -21,7 +21,7 @@ export default function Login() {
     };
 
     await axios
-      .post("api/user/login", userInfo)
+      .post("/api/user/login", userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Login successful.");
@@ -31,7 +31,7 @@ export default function Login() {
       })
       .catch((error) => {
         if (error.response) {
-          toast.error("Error" + error.response.data.error);
+          toast.error("Error" + error.response.data.message);
         }
       });
   };

@@ -11,9 +11,9 @@ createRoot(document.getElementById("root")).render(
   // <StrictMode>
   <BrowserRouter>
     <AuthProvider>
-      {/* <SocketProvider> */}
-      <App />
-      {/* </SocketProvider> */}
+      <SocketProvider>
+        <App />
+      </SocketProvider>
     </AuthProvider>
   </BrowserRouter>
   // </StrictMode>
