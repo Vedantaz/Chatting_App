@@ -1,18 +1,46 @@
+// import React, { useEffect, useState } from "react";
+// import Cookies from "js-cookie";
+// import axios from "axios";
+
+// export default function useGetAllUsers() {
+//   const [allUsers, setAllUsers] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   useEffect(() => {
+//     const getUsers = async () => {
+//       setLoading(true);
+
+//       try {
+//         const token = Cookies.get("jwt");
+//         const response = await axios.get("/api/get/allUsers", {
+//           Credentials: "include",
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         });
+//         setAllUsers(response.data);
+//         setLoading(false);
+//       } catch (error) {
+//         console.log("Error fetching in useGetAllUsers" + error);
+//       }
+//     };
+//     getUsers();
+//   }, []);
+//   return [allUsers, loading];
+// }
+
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-
-export default function useGetAllUsers() {
+function useGetAllUsers() {
   const [allUsers, setAllUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const getUsers = async () => {
       setLoading(true);
-
       try {
         const token = Cookies.get("jwt");
-        const response = await axios.get("/api/get/allUsers", {
-          Credentials: "include",
+        const response = await axios.get("/api/user/allusers", {
+          credentials: "include",
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -20,10 +48,12 @@ export default function useGetAllUsers() {
         setAllUsers(response.data);
         setLoading(false);
       } catch (error) {
-        console.log("Error fetching in useGetAllUsers" + error);
+        console.log("Error in useGetAllUsers: " + error);
       }
     };
     getUsers();
   }, []);
   return [allUsers, loading];
 }
+
+export default useGetAllUsers;
