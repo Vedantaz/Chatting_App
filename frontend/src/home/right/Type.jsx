@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { IoSend } from "react-icons/io5";
-import useSendMessage from "../../context/useSendMessage.js";
-function Type() {
+import useSendMsg from "../../context/useSendMsg";
+
+const Type = () => {
   const [message, setMessage] = useState("");
-  const { loading, sendMessages } = useSendMessage();
+  const { loading, sendMessages } = useSendMsg();
 
   const handleSubmit = async (e) => {
     console.log(e);
@@ -32,4 +33,5 @@ function Type() {
       </form>
     </>
   );
-}
+};
+export default Type;

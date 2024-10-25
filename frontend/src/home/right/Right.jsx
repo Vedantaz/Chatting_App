@@ -4,7 +4,7 @@ import ChatUser from "./ChatUser";
 import useConversation from "../../stateManage/useConversation";
 import { useAuth } from "../../context/AuthProvider";
 import { CiMenuFries } from "react-icons/ci";
-import { Types } from "./Type";
+import Type from "./Type";
 
 function Right() {
   const { selectedConversation, setSelectedConversation } = useConversation();

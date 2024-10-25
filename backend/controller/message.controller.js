@@ -33,7 +33,7 @@ export const sendMessage = async (req, res) => {
   }
 };
 
-export const getMsg = async (req, res) => {
+export const getMessage = async (req, res) => {
   try {
     const { id: chatUser } = req.params;
     const senderId = req.user._id;
