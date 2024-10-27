@@ -2,14 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import useConversation from "../../statemanage/useConversation.jsx";
 import { useSocketContext } from "../../context/SocketContext.jsx";
-import secureRoute from "../../../../backend/middleware/secureRoute.js";
 
 function User({ user }) {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
 
-  const isSelected = selectedConversation?._id === user._id;
-  const isOnline = onlineUsers.includes(user._id);
+  const isSelected = selectedConversation?._id === user?._id;
+  const isOnline = user ? onlineUsers.includes(user._id) : false;
 
   console.log(isSelected);
   return (
@@ -24,7 +23,7 @@ function User({ user }) {
           <div className="w-12 rounded-full">
             <img
               src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              alt={`${user.name}'s Avatar`}
+              alt={`${user?.name}'s Avatar`}
               onError={(e) => {
                 e.target.src = "fallback-image-url";
               }} // Add a fallback image URL
@@ -32,8 +31,8 @@ function User({ user }) {
           </div>
         </div>
         <div>
-          <h1 className="font-bold">{user.name}</h1>
-          <span>{user.email}</span>
+          <h1 className="font-bold">{user?.name}</h1>
+          <span>{user?.email}</span>
         </div>
       </div>
     </div>

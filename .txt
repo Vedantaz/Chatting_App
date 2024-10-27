@@ -21,3 +21,25 @@ Conversation Model
 _id = hksgdjfhsjghf (mongoDB)
 member[senderID,receiverID]
 Message[_id]
+
+
+1. Just syntax and data rendering and transferring as per practice.
+
+error -> User.jsx:10 Uncaught (in promise) TypeError: Cannot read properties of undefined (reading '_id')
+    at User (User.jsx:10:56)
+    at renderWithHooks (chunk-6BKLQ22S.js?v=5b27240f:11548:26)
+    at mountIndeterminateComponent (chunk-6BKLQ22S.js?v=5b27240f:14926:21)
+    at beginWork (chunk-6BKLQ22S.js?v=5b27240f:15914:22)
+    at beginWork$1 (chunk-6BKLQ22S.js?v=5b27240f:19753:22)
+    at performUnitOfWork (chunk-6BKLQ22S.js?v=5b27240f:19198:20)
+    at workLoopSync (chunk-6BKLQ22S.js?v=5b27240f:19137:13)
+    at renderRootSync (chunk-6BKLQ22S.js?v=5b27240f:19116:15)
+    at recoverFromConcurrentError (chunk-6BKLQ22S.js?v=5b27240f:18736:28)
+    at performSyncWorkOnRoot (chunk-6BKLQ22S.js?v=5b27240f:18879:28)
+
+﻿     i am taking id as  ->   const isSelected = selectedConversation?._id == user._id;
+  const isOnline = onlineUsers.includes(user._id);   
+
+
+  soln :    const isSelected = selectedConversation?._id === user?._id;
+  const isOnline = user ? onlineUsers.includes(user._id) : false;
