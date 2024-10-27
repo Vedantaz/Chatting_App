@@ -61,7 +61,7 @@
 //             <span className="text-blue-600 font-semibold">Account</span>
 //           </h2>
 
-//           {/* Fullname */}
+//           {/* name */}
 //           <label className="input input-bordered flex items-center gap-2">
 //             <svg
 //               xmlns="http://www.w3.org/2000/svg"
@@ -74,11 +74,11 @@
 //             <input
 //               type="text"
 //               className="grow"
-//               placeholder="Fullname"
-//               {...register("fullname", { required: true })}
+//               placeholder="name"
+//               {...register("name", { required: true })}
 //             />
 //           </label>
-//           {errors.fullname && (
+//           {errors.name && (
 //             <span className="text-red-500 text-sm font-semibold">
 //               This field is required
 //             </span>
@@ -212,7 +212,7 @@ function Signup() {
 
   const onSubmit = async (data) => {
     const userInfo = {
-      fullname: data.fullname,
+      name: data.name,
       email: data.email,
       password: data.password,
       confirmPassword: data.confirmPassword,
@@ -249,7 +249,7 @@ function Signup() {
             <span className="text-blue-600 font-semibold">Account</span>
           </h2>
 
-          {/* Fullname */}
+          {/* name */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -262,11 +262,11 @@ function Signup() {
             <input
               type="text"
               className="grow"
-              placeholder="Fullname"
-              {...register("fullname", { required: true })}
+              placeholder="name"
+              {...register("name", { required: true })}
             />
           </label>
-          {errors.fullname && (
+          {errors.name && (
             <span className="text-red-500 text-sm font-semibold">
               This field is required
             </span>

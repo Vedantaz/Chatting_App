@@ -90,6 +90,7 @@
 import User from "../models/user.models.js";
 import bcrypt from "bcryptjs";
 import createTokenAndSaveCookie from "../jwt/generateToken.js";
+
 export const signup = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
   try {

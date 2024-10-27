@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import useConversation from "../../stateManage/useConversation";
+import useConversation from "../../statemanage/useConversation";
 import { useSocketContext } from "../../context/SocketContext";
 import { CiMenuFries } from "react-icons/ci";
 

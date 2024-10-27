@@ -1,16 +1,43 @@
+// // import mongoose from "mongoose";
+
+// // const userSchema = mongoose.Schema(
+// //   {
+// //     name: { type: String, require: true },
+// //     email: { type: String, require: true, unique: true, lowercase: true },
+// //     password: { type: String, require: true },
+// //     confirmPassword: { type: String, require: true },
+// //   },
+// //   {
+// //     timeStamps: true, // createdAt, updatedAt
+// //   }
+// // );
+
+// // const User = mongoose.model("User", userSchema);
+// // export default User;
+
 // import mongoose from "mongoose";
 
 // const userSchema = mongoose.Schema(
 //   {
-//     name: { type: String, require: true },
-//     email: { type: String, require: true, unique: true, lowercase: true },
-//     password: { type: String, require: true },
-//     confirmPassword: { type: String, require: true },
+//     fullname: {
+//       type: String,
+//       required: true,
+//     },
+//     email: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     password: {
+//       type: String,
+//       required: true,
+//     },
+//     confirmPassword: {
+//       type: String,
+//     },
 //   },
-//   {
-//     timeStamps: true, // createdAt, updatedAt
-//   }
-// );
+//   { timestamps: true }
+// ); // createdAt & updatedAt
 
 // const User = mongoose.model("User", userSchema);
 // export default User;

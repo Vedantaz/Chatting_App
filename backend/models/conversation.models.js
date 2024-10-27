@@ -1,10 +1,34 @@
-import mongoose from "mongoose";
-import User from "./user.models";
-import Message from "./message.model.js";
+// import mongoose from "mongoose";
+// import User from "../models/user.models.js";
+// import Message from "./message.models.js";
+// const conversationSchema = new mongoose.Schema(
+//   {
+//     members: [
+//       {
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: User,
+//       },
+//     ],
+//     messages: [
+//       {
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: Message,
+//         default: [],
+//       },
+//     ],
+//   },
+//   { timestamps: true }
+// );
 
+// const Conversation = mongoose.model("conversation", conversationSchema);
+// export default Conversation;
+
+import mongoose from "mongoose";
+import User from "../models/user.models.js";
+import Message from "./message.models.js";
 const conversationSchema = new mongoose.Schema(
   {
-    participants: [
+    members: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: User,
@@ -12,7 +36,7 @@ const conversationSchema = new mongoose.Schema(
     ],
     messages: [
       {
-        type: mongoose.Schema.Type.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: Message,
         default: [],
       },
@@ -21,5 +45,5 @@ const conversationSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const conversation = mongoose.model("conversation", conversationSchema);
-export default conversation;
+const Conversation = mongoose.model("conversation", conversationSchema);
+export default Conversation;

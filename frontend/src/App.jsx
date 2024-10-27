@@ -50,14 +50,17 @@ import Login from "./components/Login";
 import { useAuth } from "./context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import Logout from "./home/left1/Logout";
+import Loading from "./components/Loading";
 
 import { Navigate, Route, Routes } from "react-router-dom";
+
 function App() {
   const [authUser, setAuthUser] = useAuth();
   console.log(authUser);
   return (
     <>
-      <Routes>
+      <Loading />
+      {/* <Routes>
         <Route
           path="/"
           element={
@@ -80,7 +83,7 @@ function App() {
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}
         />
-      </Routes>
+      </Routes> */}
       <Toaster />
     </>
   );
