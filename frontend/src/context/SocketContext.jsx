@@ -12,10 +12,10 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const { authUser } = useAuth();
-
+  // console.log(authUser);
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:4002", {
+      const socket = io("http://localhost:5002", {
         query: {
           userId: authUser.user._id,
         },

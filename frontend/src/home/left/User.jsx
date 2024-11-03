@@ -9,8 +9,6 @@ function User({ user }) {
 
   const isSelected = selectedConversation?._id === user?._id;
   const isOnline = user ? onlineUsers.includes(user._id) : false;
-
-  console.log(isSelected);
   return (
     <div
       className={`hover:bg-slate-600 duration-300 ${

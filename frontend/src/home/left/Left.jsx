@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
-import User from "./User";
+import User from "./User.jsx";
 
 export default function Left() {
   return (
@@ -12,7 +12,7 @@ export default function Left() {
           className=" flex-1  overflow-y-auto"
           style={{ minHeight: "calc(84vh - 10vh)" }}
         ></div>
-        <User />
+        {/* <User /> */}
       </div>
     </>
   );
