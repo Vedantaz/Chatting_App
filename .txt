@@ -68,3 +68,7 @@ I updated the JWT file like {userId} :
   const token = jwt.sign( userId , process.env.JWT_TOKEN, {
     expiresIn: "100d",
   });  
+
+
+  3. Login and SignUp, allUsers is successful, but it can't able to render towards the left, right alike dashboard page for messaging it.
+  => authUser coming is undefined

@@ -18,6 +18,7 @@ function App() {
       {/* <Loading /> */}
       <Routes>
         <Route
+          exact
           path="/"
           element={
             authUser ? (

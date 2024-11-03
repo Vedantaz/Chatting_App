@@ -8,7 +8,6 @@ axios.defaults.withCredentials = true;
 
 function Login() {
   const { authUser, setAuthUser } = useAuth();
-
   const {
     register,
     handleSubmit,
@@ -26,13 +25,15 @@ function Login() {
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");
+          console.log("Login done, Ved!");
         }
         localStorage.setItem("ChatApp", JSON.stringify(response.data));
+
         setAuthUser(response.data);
       })
       .catch((error) => {
         if (error.response) {
-          toast.error("Error: " + error.response.data.error);
+          toast.error("Error: " + error.response.data.message);
         }
       });
   };
