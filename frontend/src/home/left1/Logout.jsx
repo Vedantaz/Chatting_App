@@ -4,6 +4,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 
+axios.defaults.withCredentials = true;
+
 export default function Logout() {
   const [loading, setLoading] = useState();
   const handleLogout = async () => {

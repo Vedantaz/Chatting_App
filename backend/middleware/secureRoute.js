@@ -1,9 +1,10 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.models.js";
+import Cookies from "js-cookie";
 
 const secureRoute = async (req, res, next) => {
   try {
-    const token = await req.cookies.jwt;
+    const token = req.cookies.jwt;
     console.log("token in secureRoute: ", token);
     if (!token) {
       return res.status(401).json({ error: "No token, authorization denied" });

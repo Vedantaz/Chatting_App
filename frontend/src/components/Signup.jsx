@@ -4,6 +4,9 @@ import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+
+axios.defaults.withCredentials = true;
+
 function Signup() {
   const { authUser, setAuthUser } = useAuth();
   const {

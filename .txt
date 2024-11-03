@@ -43,3 +43,28 @@ error -> User.jsx:10 Uncaught (in promise) TypeError: Cannot read properties of 
 
   soln :    const isSelected = selectedConversation?._id === user?._id;
   const isOnline = user ? onlineUsers.includes(user._id) : false;
+
+
+2. I created a middleware secureroute, but it is getting the cookie token , how can be the reason behind it.   trhe sample code  -> const token = req.cookies.jwt;
+    console.log("token in secureRoute: ", token);    i importted the ? import jwt from "jsonwebtoken";  
+
+    =>  now token is coming, I set credentials is == true, in cors 
+    == cors: {
+    origin: "http://localhost:3001",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+
+
+  Also, -> I aded the axios credentials == true -> axios.defaults.withCredentials = true;
+
+
+// IMP ->> I added the credentials :  true, in server.js in cors. Also,   
+I updated the JWT file like {userId} :  
+  const token = jwt.sign({ userId }, process.env.JWT_TOKEN, {
+    expiresIn: "100d",
+  });  
+  Instead of :: 
+  const token = jwt.sign( userId , process.env.JWT_TOKEN, {
+    expiresIn: "100d",
+  });  

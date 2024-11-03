@@ -6,7 +6,7 @@ export const AuthProvider = ({ children }) => {
     Cookies.get("jwt") || localStorage.getItem("ChatApp");
 
   // parse the user data and storing in state.
-  const [authUser, setAuthUser] = useState(
+  const { authUser, setAuthUser } = useState(
     initialUserState ? JSON.parse(initialUserState) : undefined
   );
   return (
