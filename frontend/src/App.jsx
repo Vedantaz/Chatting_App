@@ -12,7 +12,6 @@ import { Navigate, Route, Routes, Router } from "react-router-dom";
 
 function App() {
   const { authUser } = useAuth();
-  console.log(authUser);
   return (
     <>
       {/* <Loading /> */}

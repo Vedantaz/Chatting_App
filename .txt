@@ -81,3 +81,7 @@ I updated the JWT file like {userId} :
   
   if we need both values =>  
   const { authUser, setAuthUser } = useAuth(); in other components	Allows both reading and updating authUser where necessary.
+
+  4. Still I can't able to access the all users inside the dashboard ->> 
+  -> thi is because of the token in the ueGetAllUsers
+  ->>  const token = Cookies.get(jwt); in ueGetAllUsers.js  == undefined Because in browser the set_cookie is not coming 

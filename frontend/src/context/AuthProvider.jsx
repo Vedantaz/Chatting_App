@@ -7,18 +7,20 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const initialUserState =
     Cookies.get("jwt") || localStorage.getItem("ChatApp");
-  console.log(initialUserState);
+  // console.log(initialUserState);
+
   // parse the user data and storing in state.
   const [authUser, setAuthUser] = useState(
     initialUserState ? JSON.parse(initialUserState) : undefined
   );
-  console.log(authUser);
+
+  // console.log(authUser);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (initialUserState) {
       setAuthUser(JSON.parse(initialUserState));
-      console.log("In initialUserState");
+      // console.log("In initialUserState");
     }
     setLoading(false); // Set loading to false once authUser is initialized
   }, []);
