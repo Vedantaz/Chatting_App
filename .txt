@@ -72,3 +72,12 @@ I updated the JWT file like {userId} :
 
   3. Login and SignUp, allUsers is successful, but it can't able to render towards the left, right alike dashboard page for messaging it.
   => authUser coming is undefined
+
+  it is because of the authUser data handling code -> 1. in useState function inside the UAuthp[rovider -> ]
+  const [authUser, setAuthUser] = useState(...) in AuthProvider	Initializes and manages authUser state in AuthProvider.
+  
+  in the App.js -> 
+  const { authUser } = useAuth(); in App.js	Accesses authUser without needing setAuthUser, optimizing performance if no updates are needed.
+  
+  if we need both values =>  
+  const { authUser, setAuthUser } = useAuth(); in other components	Allows both reading and updating authUser where necessary.

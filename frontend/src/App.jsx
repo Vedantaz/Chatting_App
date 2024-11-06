@@ -8,11 +8,11 @@ import { Toaster } from "react-hot-toast";
 import Logout from "./home/left1/Logout";
 import Loading from "./components/Loading";
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, Router } from "react-router-dom";
 
 function App() {
-  const { authUser, setAuthUser } = useAuth();
-  // console.log(authUser);
+  const { authUser } = useAuth();
+  console.log(authUser);
   return (
     <>
       {/* <Loading /> */}
@@ -28,7 +28,7 @@ function App() {
                 <Right />
               </div>
             ) : (
-              <Navigate to={"/login"} />
+              <Navigate to="/login" replace />
             )
           }
         />

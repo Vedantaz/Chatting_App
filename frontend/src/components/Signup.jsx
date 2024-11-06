@@ -30,7 +30,6 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
-    console.log(userInfo);
     await axios
       .post("/api/user/signup", userInfo)
       .then((response) => {

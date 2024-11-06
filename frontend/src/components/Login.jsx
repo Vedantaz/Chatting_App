@@ -28,7 +28,6 @@ function Login() {
           console.log("Login done, Ved!");
         }
         localStorage.setItem("ChatApp", JSON.stringify(response.data));
-
         setAuthUser(response.data);
       })
       .catch((error) => {
