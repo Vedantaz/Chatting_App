@@ -1,13 +1,14 @@
-// import {getReceiverSocketId, io } from "";
+import { getReceiverSocketId, io } from "../socketIO/server.js";
 
 import Conversation from "../models/conversation.models.js";
 
 import Message from "../models/message.models.js";
+
 export const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
     const { id: receiverId } = req.params;
-    const senderId = req.user._id;
+    const senderId = req.user._id; // it is current logged in user
     let conversation = await Conversation.findOne({
       participants: { $all: [senderId, receiverId] },
     });
@@ -24,7 +25,10 @@ export const sendMessage = async (req, res) => {
         conversation.messages.push(newMsg._id);
       }
 
-      await Promise.all([conversation.save(), newMsg.save()]);
+      // await conversation.save()
+      // await newMessage.save();
+
+      await Promise.all([conversation.save(), newMsg.save()]); // run in parallel
 
       res.status(201).json({ message: "Message sent successfully", newMsg });
     }

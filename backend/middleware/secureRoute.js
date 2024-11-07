@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.models.js";
-import Cookies from "js-cookie";
 
 const secureRoute = async (req, res, next) => {
   try {

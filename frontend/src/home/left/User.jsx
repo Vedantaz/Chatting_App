@@ -38,12 +38,12 @@ function User({ user }) {
   );
 }
 
-User.propTypes = {
-  user: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  }).isRequired,
-};
+// User.propTypes = {
+//   user: PropTypes.shape({
+//     _id: PropTypes.string.isRequired,
+//     name: PropTypes.string.isRequired,
+//     email: PropTypes.string.isRequired,
+//   }).isRequired,
+// };
 
 export default User;
