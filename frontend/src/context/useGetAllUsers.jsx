@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -19,7 +19,8 @@ function useGetAllUsers() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setAllUsers(response.data);
+        // console.log(response.data);
+        setAllUsers([...response.data]);
         setLoading(false);
       } catch (error) {
         console.log("Error in useGetAllUsers: " + error);

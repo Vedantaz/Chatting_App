@@ -20,8 +20,8 @@ function User({ user }) {
         <div className={`avatar ${isOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
             <img
-              // src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              src="../../assets/photo.jpg"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              // src="./photo.jpg"
               alt={`${user?.name}'s Avatar`}
               onError={(e) => {
                 e.target.src = "fallback-image-url";

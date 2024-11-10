@@ -73,7 +73,7 @@ I updated the JWT file like {userId} :
   3. Login and SignUp, allUsers is successful, but it can't able to render towards the left, right alike dashboard page for messaging it.
   => authUser coming is undefined
 
-  it is because of the authUser data handling code -> 1. in useState function inside the UAuthp[rovider -> ]
+  it is because of the authUser data handling code -> 1. in useState function inside the AuthProvider,
   const [authUser, setAuthUser] = useState(...) in AuthProvider	Initializes and manages authUser state in AuthProvider.
   
   in the App.js -> 
@@ -84,4 +84,5 @@ I updated the JWT file like {userId} :
 
   4. Still I can't able to access the all users inside the dashboard ->> 
   -> thi is because of the token in the ueGetAllUsers
-  ->>  const token = Cookies.get(jwt); in ueGetAllUsers.js  == undefined Because in browser the set_cookie is not coming 
+  ->>  const token = Cookies.get(jwt); in useGetAllUsers.js  == undefined Because in browser the set_cookie is not coming 
+

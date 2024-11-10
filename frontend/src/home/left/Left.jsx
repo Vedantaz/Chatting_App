@@ -11,8 +11,9 @@ export default function Left() {
         <div
           className=" flex-1  overflow-y-auto"
           style={{ minHeight: "calc(84vh - 10vh)" }}
-        ></div>
-        <Users />
+        >
+          <Users />
+        </div>
       </div>
     </>
   );

@@ -25,7 +25,7 @@ function Login() {
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");
-          console.log("Login done, Ved!");
+          console.log("Login done, Vedant!");
         }
         localStorage.setItem("ChatApp", JSON.stringify(response.data));
         setAuthUser(response.data);

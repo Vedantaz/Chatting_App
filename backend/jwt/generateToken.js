@@ -7,10 +7,10 @@ const createTokenAndSaveCookie = (userId, res) => {
   console.log("Token from jwt file: ", token);
   res.cookie("jwt", token, {
     httpOnly: true, // xss attacks se bachayega
-    // secure: process.env.NODE_ENV === "production",
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
+    // secure: true,
     // path: "/",
-    sameSite: "Strict", // csrf attacks se bachayega   // use it only locally
+    sameSite: "strict", // csrf attacks se bachayega   // use it only locally
     // sameSite: "Lax",          /// use it locally
     // sameSite: "None", // All users will not come
   });

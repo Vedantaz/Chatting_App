@@ -1,19 +1,19 @@
 import express from "express";
-import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 import cors from "cors";
-import { app, server } from "./socketIO/server.js";
 
 import userRoute from "./routes/user.routes.js";
 import messageRoute from "./routes/message.routes.js";
+import { app, server } from "./socketIO/server.js";
 
 // const app = express();
 dotenv.config();
 
-app.get("/", (req, res) => {
-  res.send("Vedant, all is running well");
-});
+// app.get("/", (req, res) => {
+//   res.send("Vedant, all is running well");
+// });
 
 // middleware
 app.use(express.json());
