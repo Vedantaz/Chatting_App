@@ -15,7 +15,11 @@ export default function ChatUser() {
       <div>
         <div className="avatar online">
           <div className="w-14 rounded-full">
-            <img src="../../assets/photo.jpg" alt="" />
+            {/* <img src="../../assets/photo.jpg" alt="" /> */}
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              alt="../../assets/photo.jpg"
+            />
           </div>
         </div>
       </div>

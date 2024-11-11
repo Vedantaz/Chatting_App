@@ -7,7 +7,6 @@ const Type = () => {
   const { loading, sendMessages } = useSendMsg();
 
   const handleSubmit = async (e) => {
-    console.log(e);
     e.preventDefault();
     await sendMessages(message);
     setMessage("");

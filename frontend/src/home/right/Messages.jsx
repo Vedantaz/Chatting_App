@@ -7,7 +7,6 @@ import useGetSocketMsg from "../../context/useGetSocketMsg.jsx";
 function Messages() {
   const { loading, messages } = useGetMsg();
   useGetSocketMsg(); // listing incoming messages
-  // console.log(messages);
 
   const lastMsgRef = useRef();
   useEffect(() => {
@@ -28,8 +27,8 @@ function Messages() {
         <Loading />
       ) : (
         messages.length > 0 &&
-        messages.map((message) => (
-          <div key={message._id} ref={lastMsgRef}>
+        messages.map((message, index) => (
+          <div key={message._id || index} ref={lastMsgRef}>
             <Message message={message} />
           </div>
         ))

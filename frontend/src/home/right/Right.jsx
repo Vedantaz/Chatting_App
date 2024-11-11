@@ -25,8 +25,8 @@ function Right() {
               style={{ maxHeight: "calc(88vh - 8vh)" }}
             >
               <Messages />
+              <Type />/
             </div>
-            {/* <Typesend /> */}
           </>
         )}
       </div>
